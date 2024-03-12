@@ -1,0 +1,122 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Data Mahasiswa</title>
+    <link rel="stylesheet" href="style.css" />
+    <!-- DataTables -->
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdn.datatables.net/2.0.2/css/dataTables.dataTables.css"
+    />
+
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+  </head>
+
+  <body onload="startTime()">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+      <div class="container">
+        <a class="navbar-brand"
+          ><span style="color: lime">Data</span
+          ><span style="color: red"> Mahasiswa</span
+          ><span style="color: lightskyblue"> ||</span></a
+        >
+      </div>
+    </nav>
+    <div class="container">
+      <div class="d-flex justify-content-between align-items-center">
+        <div>
+          <h1>Hello, 世界!</h1>
+        </div>
+        <div>
+          <h3 id="clock"></h3>
+        </div>
+      </div>
+      <hr />
+      <p>
+        Usaha keras tidak akan mengkhianati hasil, tapi bisa mengkhianati
+        impian.
+      </p>
+      <hr />
+      <form id="insertDataForm" onsubmit="event.preventDefault()">
+        <div class="row mb-3">
+          <label for="nim" class="col-sm-2 col-form-label">NIM</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="Nomor Induk Mahasiswa"
+              type="text"
+              class="form-control"
+              id="nim"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="nama" class="col-sm-2 col-form-label">Nama Lengkap</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="Nama lengkap"
+              type="text"
+              class="form-control"
+              id="nama"
+            />
+          </div>
+        </div>
+        <div class="row mb-3">
+          <label for="alamat" class="col-sm-2 col-form-label">Alamat</label>
+          <div class="col-sm-10">
+            <input
+              placeholder="Alamat Tempat Tinggal Asal"
+              type="text"
+              class="form-control"
+              id="alamat"
+            />
+          </div>
+        </div>
+        <div class="d-flex justify-content-end">
+          <button type="reset" class="btn btn-warning me-2">Reset</button>
+          <button type="submit" onclick="submitForm()" class="btn btn-success">
+            +Tambah
+          </button>
+        </div>
+      </form>
+      <table
+        id="table"
+        class="table table-responsive table-striped"
+        style="width: 100%; display: none"
+      >
+        <thead>
+          <tr>
+            <th>NIM</th>
+            <th>Nama</th>
+            <th>Alamat</th>
+            <!-- <th>Pengaturan</th> -->
+          </tr>
+        </thead>
+        <tbody id="data"></tbody>
+      </table>
+      <hr />
+    </div>
+
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.min.js"
+      integrity="sha384-0pUGZvbkm6XF6gxjEnlmuGrJXVbNuzT9qBBavbLwCsOGabYfZo0T0to5eqruptLy"
+      crossorigin="anonymous"
+    ></script>
+
+    <!-- DataTables -->
+    <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
+    <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
+
+    <!-- SweetAlert -->
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+
+    <!-- External script -->
+    <script src="script.js"></script>
+  </body>
+</html>
