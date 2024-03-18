@@ -8,20 +8,45 @@
     <script src="https://code.jquery.com/jquery-3.7.1.js"></script>
   </head>
 
-  <body onload="startTime()">
+  <body>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container">
-        <a class="navbar-brand"
+        <a class="navbar-brand" href=""
           ><span style="color: lime">Data</span
           ><span style="color: red"> Mahasiswa</span
           ><span style="color: lightskyblue"> ||</span></a
         >
       </div>
     </nav>
-    <div class="container">
-      <div class="d-flex justify-content-between align-items-center">
+
+    <div class="container mt-4" id="login">
+      <h2 class="text-center">Please Log in!</h2>
+      <div class="d-flex justify-content-center">
+        <form action="" onsubmit="event.preventDefault()" class="w-100 w-md-50">
+          <div class="form-floating mb-4">
+            <input
+              type="text"
+              name="username"
+              required
+              placeholder="Username"
+              id="username"
+              class="form-control w-full"
+            />
+            <label for="username">Your Name</label>
+          </div>
+          <button type="submit" class="btn btn-primary" id="login-button">
+            Login
+          </button>
+        </form>
+      </div>
+    </div>
+
+    <div class="container" id="main" style="display: none">
+      <div
+        class="d-flex flex-column flex-md-row justify-content-between align-items-start aligm-items-md-center mt-3"
+      >
         <div>
-          <h1>Hello, 世界!</h1>
+          <h1>Hello, <span id="username-label"></span>!</h1>
         </div>
         <div>
           <h3 id="clock"></h3>
@@ -87,14 +112,19 @@
             </svg>
             Reset
           </button>
-          <button type="submit" onclick="submitForm()" class="btn btn-success">
+          <button type="submit" id="insert-data" class="btn btn-success">
             +Tambah
           </button>
         </div>
       </form>
 
-      <div id="tableData" style="display: none">
-        <table id="table" class="table table-responsive table-striped w-full">
+      <div id="tableData" style="display: none" class="mt-4">
+        <h2>Data Mahasiswa</h2>
+        <table
+          id="table"
+          class="table table-responsive table-striped w-full"
+          style="width: 100%"
+        >
           <thead>
             <tr>
               <th>NIM</th>
@@ -121,6 +151,7 @@
                 ></button>
               </div>
               <form id="editDataForm" onsubmit="event.preventDefault()">
+                <input type="hidden" id="editIndex">
                 <div class="modal-body">
                   <div class="row mb-3">
                     <label for="nim" class="col-sm-4 col-form-label">NIM</label>
@@ -128,8 +159,9 @@
                       <input
                         placeholder="Nomor Induk Mahasiswa"
                         type="text"
+                        disabled
                         class="form-control"
-                        id="nim"
+                        id="edit-nim"
                       />
                     </div>
                   </div>
@@ -142,7 +174,7 @@
                         placeholder="Nama lengkap"
                         type="text"
                         class="form-control"
-                        id="nama"
+                        id="edit-nama"
                       />
                     </div>
                   </div>
@@ -155,7 +187,7 @@
                         placeholder="Alamat Tempat Tinggal Asal"
                         type="text"
                         class="form-control"
-                        id="alamat"
+                        id="edit-alamat"
                       />
                     </div>
                   </div>
@@ -180,7 +212,12 @@
                     </svg>
                     Cancel
                   </button>
-                  <button type="button" class="btn btn-primary" onclick="">
+                  <button
+                    type="button"
+                    class="btn btn-primary"
+                    data-bs-dismiss="modal"
+                    id="update"
+                  >
                     <svg
                       xmlns="http://www.w3.org/2000/svg"
                       width="16"
@@ -212,15 +249,6 @@
     ></script>
 
     <!-- DataTables -->
-    <link
-      rel="stylesheet"
-      href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/css/bootstrap.min.css"
-    />
-    <script
-      src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
-      integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz"
-      crossorigin="anonymous"
-    ></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/5.3.0/js/bootstrap.bundle.min.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.js"></script>
     <script src="https://cdn.datatables.net/2.0.2/js/dataTables.bootstrap5.js"></script>
