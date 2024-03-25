@@ -12,7 +12,7 @@ $(document).ready(() => {
 
     Swal.fire({
       title: "Hi, there!",
-      text: `Welcome back, ${$("#username").val()}`,
+      text: `Welcome, ${$("#username").val()}`,
       icon: "success",
       confirmButtonText: "Close",
     });
